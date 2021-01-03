@@ -8,9 +8,9 @@ public class Route extends RouteBuilder {
     public void configure() throws Exception {
 
         from("direct:placeOrder")
-                .bean("order", "placeOrder")
+                .bean("order", "validate")
+                .bean("order", "place")
                 .to("kafka:newOrder")
                 .end();
-
     }
 }
